@@ -1,0 +1,17 @@
+name: ChunkyVoid
+version: 0.1.0
+main: dev.etzewetze.chunkyvoid.ChunkyVoidPlugin
+api-version: '1.19'
+load: STARTUP
+folia-supported: true
+description: Void generator, resumable pregeneration and invisible safe border
+authors: [etzewetze, OpenAI Codex]
+commands:
+  chunkyvoid:
+    description: Configure the border and chunk pregeneration
+    usage: /chunkyvoid <border|pregen|reload>
+    permission: chunkyvoid.admin
+permissions:
+  chunkyvoid.admin:
+    description: Manage ChunkyVoid
+    default: op

@@ -1,0 +1,10 @@
+# Names are exact Bukkit world folder names. The generator itself is selected in bukkit.yml.
+worlds:
+  world:
+    border:
+      enabled: false
+      center-x: 0
+      center-z: 0
+      radius: 500
+      setback: 10
+      search-radius: 3
