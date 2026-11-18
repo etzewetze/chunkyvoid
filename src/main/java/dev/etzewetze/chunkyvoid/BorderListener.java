@@ -83,7 +83,7 @@ public final class BorderListener implements Listener {
 
         int targetX = bounds.returnX(attempted.getBlockX());
         int targetZ = bounds.returnZ(attempted.getBlockZ());
-        List<int[]> candidates = candidates(targetX, targetZ, bounds);
+        List<int[]> candidates = candidates(attempted.getWorld(), targetX, targetZ, bounds);
         if (runtime.isFolia()) {
             searchNext(player, attempted, candidates, 0, id);
         } else {
@@ -96,7 +96,7 @@ public final class BorderListener implements Listener {
         }
     }
 
-    private List<int[]> candidates(int x, int z, BorderBounds bounds) {
+    private List<int[]> candidates(World world, int x, int z, BorderBounds bounds) {
         List<int[]> result = new ArrayList<>();
         int radius = bounds.searchRadius();
         for (int dx = -radius; dx <= radius; dx++) {
@@ -105,6 +105,11 @@ public final class BorderListener implements Listener {
             }
         }
         result.sort(Comparator.comparingInt(p -> p[2] * p[2] + p[3] * p[3]));
+        Location spawn = world.getSpawnLocation();
+        if (bounds.inside(spawn.getBlockX(), spawn.getBlockZ())
+                && result.stream().noneMatch(p -> p[0] == spawn.getBlockX() && p[1] == spawn.getBlockZ())) {
+            result.add(new int[]{spawn.getBlockX(), spawn.getBlockZ(), 0, 0});
+        }
         return result;
     }
 

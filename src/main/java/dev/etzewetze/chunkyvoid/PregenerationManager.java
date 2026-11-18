@@ -135,8 +135,12 @@ public final class PregenerationManager {
                 throw new IllegalArgumentException("Invalid pregeneration cursor");
             }
             // Never resume automatically on restart; an administrator decides when disk use continues.
-            job = new Job(p.getProperty("world"), range, next,
-                    next == range.total() || "DONE".equals(p.getProperty("state")) ? State.DONE : State.PAUSED);
+            String savedState = p.getProperty("state", "RUNNING");
+            // A crash can lose chunks loaded after the last server autosave. Scan again
+            // rather than trusting the cursor of an interrupted RUNNING job.
+            long safeNext = "RUNNING".equals(savedState) ? 0 : next;
+            job = new Job(p.getProperty("world"), range, safeNext,
+                    next == range.total() || "DONE".equals(savedState) ? State.DONE : State.PAUSED);
         } catch (IOException | RuntimeException error) {
             plugin.getLogger().warning("Could not load pregen.properties: " + error);
         }
