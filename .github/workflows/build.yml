@@ -13,7 +13,7 @@ jobs:
           - api: 1.19-R0.1-SNAPSHOT
             java: '17'
           - api: 26.3-R0.1-SNAPSHOT
-            java: '21'
+            java: '25'
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
