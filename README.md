@@ -21,7 +21,7 @@ Eigenständiges Minecraft-Server-Plugin mit Void-Generator, pausierbarer Chunk-V
    ```
 
 3. Bei einer **neuen** Welt den Server starten. Bei einer bereits vorhandenen Welt bleiben vorhandene Chunks unverändert; nur neu erzeugte Chunks sind leer. Eine wirklich vollständig leere Welt muss daher neu angelegt oder nach Sicherung von alten Chunk-Dateien bereinigt werden.
-4. In der leeren Welt einen sicheren Spawn mit einer Plattform bauen oder einen vorhandenen sicheren Spawn verwenden. Das Plugin baut absichtlich keine Blöcke automatisch.
+4. In der leeren Welt einen sicheren Spawn mit einer Plattform um (0, 80, 0) bauen oder einen vorhandenen sicheren Spawn verwenden. Der Generator legt zwar eine feste Spawnposition fest, baut aber absichtlich keine Blöcke automatisch; ohne Plattform fällt ein Spieler in die Leere.
 5. `/chunkyvoid border set 500 world` setzt eine unsichtbare Border um (0, 0). Mit Mittelpunkt (0, 0) sind Blockkoordinaten −500 bis +500 erlaubt; beim Versuch, Block 501 zu betreten, wird ein sicherer Platz um Block 490 gesucht.
 
 Eine vollständig leere Welt muss nicht groß vorab generiert werden. Die normale Serverspeicherung sichert erzeugte Chunks; Vorabgenerierung hält die Welt nicht dauerhaft im RAM.

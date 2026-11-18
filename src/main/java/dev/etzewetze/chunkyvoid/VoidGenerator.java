@@ -2,6 +2,7 @@ package dev.etzewetze.chunkyvoid;
 
 import java.util.List;
 import java.util.Random;
+import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.block.Biome;
 import org.bukkit.generator.BiomeProvider;
@@ -25,6 +26,11 @@ public final class VoidGenerator extends ChunkGenerator {
     @Override
     public BiomeProvider getDefaultBiomeProvider(WorldInfo info) {
         return VOID_BIOMES;
+    }
+
+    @Override
+    public Location getFixedSpawnLocation(World world, Random random) {
+        return new Location(world, 0.5, Math.min(80, world.getMaxHeight() - 2), 0.5);
     }
 
     @Override
