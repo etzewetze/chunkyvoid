@@ -6,7 +6,7 @@ Eigenständiges Minecraft-Server-Plugin mit Void-Generator, pausierbarer Chunk-V
 
 - Java 17 Bytecode, Spigot/Paper/Purpur ab Minecraft 1.19 und Folia ab dessen erster Veröffentlichung (1.19.4). Der Server braucht je nach Version Java 17 (1.19), Java 21 (1.20–1.21.11) oder Java 25 (26.1+).
 - Die CI kompiliert und testet gegen die Spigot-APIs 1.19 und 26.3. Papier-, Purpur- und Folia-spezifische Scheduler- und Chunk-APIs werden zur Laufzeit erkannt.
-- `mvn verify` erstellt `target/chunkyvoid-0.1.0.jar`. Der CI-Lauf stellt die JAR auch als Workflow-Artefakt bereit.
+- `mvn verify` erstellt `target/chunkyvoid-0.1.0.jar`. Die JAR steht nach einem erfolgreichen Build als Workflow-Artefakt und auf der [Releases-Seite](https://github.com/etzewetze/chunkyvoid/releases) bereit. Ein neuer Release wird beim Merge einer neuen Projektversion nach `main` erstellt.
 - Serverlaufzeit und Verhalten mit jeder einzelnen Version müssen zusätzlich auf einem Testserver geprüft werden; ein API-Build ersetzt diesen Test nicht.
 
 ## Installation: vollständig leere Welt
